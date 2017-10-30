@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JS Intermedite</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function starString(num) {
+            var output = "*".repeat(num);
+            console.log(output);
+        }
+        starString(8);
+
+        function drawStars(arr) {
+            if (null === arr) {
+                console.log("Error: You must pass an array to this function.");
+            } else if (arr.constructor != Array) {
+                console.log("Error: You must pass an array to this function.");
+            } else {
+                for (var k = 0; k < arr.length; k++) {
+                    if (arr[k] === null)
+                        console.log("Value is null");
+                    else if (arr[k] === undefined)
+                        console.log("Value is undefined");
+                    else if (arr[k].constructor == String) {
+                        if (arr[k].length == 0) {
+                            console.log("  <empty string>");
+                        } else {
+                            console.log(arr[k][0].repeat(arr[k].length));
+                        }
+                    } else if (arr[k].constructor == Number) {
+                        starString(arr[k]);
+                    } else {
+                        console.log("&&& What is this?? " + arr[k] + " &&&")
+                    }
+                }
+            }
+        }
+        console.log('Testing null array.');
+        drawStars(null);
+        console.log('Normal tests..');
+        // drawStars([ 'abc',  9,{ 'foo': 'Bar'}, '', null, undefined, 7, true ] );
+        let x = [4, "Tom", 1, "Michael", 5, 7, "Jimmy Smith"];
+        drawStars(x);
+    </script>
+</body>
+
+</html>
